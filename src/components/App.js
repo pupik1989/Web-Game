@@ -65,6 +65,8 @@ export default class App extends React.Component {
 
     random = () => {
         const x = Math.ceil(Math.random() * this.state.board.length)
+        if (x === this.state.magicNumber)
+            this.random()
         this.setState(() => {
             return {
                 magicNumber: x
@@ -81,9 +83,6 @@ export default class App extends React.Component {
             })
             this.random()
         }
-
-       
-
     }
 
     render() {
