@@ -79,9 +79,10 @@ export default class App extends React.Component {
                     score: prev.score + 1
                 }
             })
+            this.random()
         }
 
-        this.random()
+       
 
     }
 
