@@ -27,7 +27,7 @@ export default class App extends React.Component {
 
     changeStatus = () => {
         this.setState((prev) => {
-            return { inGame: !prev.inGame }
+            return { inGame: !prev.inGame, score: 0 }
         })
         this.random()
         this.countTime();
