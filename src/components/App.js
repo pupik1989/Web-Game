@@ -6,6 +6,7 @@ import Start from './Start'
 import Score from './Score'
 import Board from './Board'
 import MaxScore from './MaxScore'
+import Instructions from './Instructions'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -89,6 +90,7 @@ export default class App extends React.Component {
         return (
             <div className="main">
                 <Header />
+                <Instructions />
                 {this.state.inGame && <Clock time={this.state.time} />}
                 {this.state.inGame && <Score score={this.state.score} />}
                 {this.state.playedOnce && <MaxScore best={this.state.maxScore} />}

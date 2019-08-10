@@ -23,7 +23,11 @@ img{
     color:#FF851B;
 }
 
-
+.ins{
+    color: #FF851B;
+    border: 1px solid #FF851B;
+    line-height: 2;
+}
 
 .clock{
     font-size: 3em;
