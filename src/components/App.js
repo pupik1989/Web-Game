@@ -7,6 +7,15 @@ import Score from './Score'
 import Board from './Board'
 import MaxScore from './MaxScore'
 import Instructions from './Instructions'
+import $ from 'jquery';
+
+
+
+$(document).ready(function () {
+    $('.start').hover(function () {
+        $(this).toggleClass('hover');
+    })
+});
 
 export default class App extends React.Component {
     constructor(props) {
@@ -14,7 +23,7 @@ export default class App extends React.Component {
         this.state = {
             inGame: false,
             time: 10,
-            board: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            board: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
             magicNumber: 0,
             score: 0,
             playedOnce: false,
@@ -24,7 +33,12 @@ export default class App extends React.Component {
 
     componentdidunmount() {
         this.random()
+
+
+
     }
+
+
 
     changeStatus = () => {
         this.setState((prev) => {
@@ -57,8 +71,6 @@ export default class App extends React.Component {
                     maxScore: this.state.score
                 }
             })
-
-
         this.setState((prev) => {
             return { inGame: !prev.inGame, time: 10, magicNumber: 0, score: 0, playedOnce: true }
         })
@@ -90,14 +102,16 @@ export default class App extends React.Component {
         return (
             <div className="main">
                 <Header />
-                <Instructions />
                 {this.state.inGame && <Clock time={this.state.time} />}
                 {this.state.inGame && <Score score={this.state.score} />}
                 {this.state.playedOnce && <MaxScore best={this.state.maxScore} />}
-                {!this.state.inGame && <Start changeStatus={this.changeStatus} />}
+                <div className='one'>
+                    {!this.state.inGame && <Instructions />}
+                    {!this.state.inGame && <Start changeStatus={this.changeStatus} />}</div>
                 <Board board={this.state.board} handleUserPress={this.handleUserPress} magic={this.state.magicNumber} />
             </div >
         )
     }
 
 }
+
